@@ -1,0 +1,24 @@
+.navbar{
+  background-color: lightblue;
+  width:100%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 5;
+}
+.navbar-header{
+  width: 100%;
+}
+
+.score-heading{
+  position: relative;
+  left: 35%;
+  top: 5%;
+  display: inline;
+}
+
+.score{
+  text-align: right;
+  float: right;
+  display: inline;
+}
