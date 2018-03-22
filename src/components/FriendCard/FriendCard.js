@@ -21,7 +21,6 @@ const FriendCard = props => (
         </li>
       </ul>
     </div>
-    <span className="remove" onClick={() => props.removeFriend(props.id)}> 𝘅 </span>
   </div>
 );
 
