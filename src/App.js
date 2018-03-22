@@ -15,9 +15,32 @@ class App extends React.Component {
     friends
   }
 
-  handleClick = id => {
-    const friends = this.state.friends.filter(friend => friend.id !== id);
-    this.setState({friends})
+  clickedCards = [];
+
+  handleClick = () => {
+    this.setState({ score: this.state.score + 1 });
+    //console.log("clicked" + this.state.score);
+    if(this.state.score + 1 > this.state.topScore) {
+      this.setState({ topScore: this.state.topScore + 1 });
+    }
+    //console.log("clicked" + this.state.topScore);
+  }
+
+  handleMemory = event => {
+    //const friends = this.state.friends.filter(friend => friend.id !== id);
+    event.preventDefault();
+    console.log(event.target.id);
+    if(this.clickedCards.indexOf(event.target.id) === -1) {
+      this.clickedCards.push(event.target.id);
+      this.handleClick();
+    }
+    else {
+      this.clickedCards = [];
+      this.setState({
+        score: 0,
+        friends
+      })
+    }
   }
 
 
@@ -32,13 +55,11 @@ class App extends React.Component {
           <MiddleContent />
           {this.state.friends.map(friend => (
           <FriendCard
-            removeFriend = {this.removeFriend}
             id={friend.id}
             key={friend.id}
             name={friend.name}
             image={friend.image}
-            occupation={friend.occupation}
-            location={friend.location}
+            handleMemory = {this.handleMemory}
           />
           ))}
         </Wrapper>

@@ -4,7 +4,7 @@ import "./FriendCard.css";
 
 
 const FriendCard = props => (
-  <div className="card">
+  <div className="card" key={props.id} onClick={props.handleMemory}>
     <div className="img-container">
       <img alt={props.name} src={props.image} />
     </div>
@@ -12,12 +12,6 @@ const FriendCard = props => (
       <ul>
         <li id={props.id}>
           <strong>Name:</strong> {props.name}
-        </li>
-        <li>
-          <strong>Occupation:</strong> {props.occupation}
-        </li>
-        <li>
-          <strong>Address:</strong> {props.location}
         </li>
       </ul>
     </div>
